@@ -31,5 +31,13 @@ jobs:
 
       - name: Test R
         run: |
-          Rscript -e 'print("hello")'
+          Rscript R/pathway.R
+
+      - name: Commit files
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add ./Data
+          git commit -m "updated data"
+          git push
 
