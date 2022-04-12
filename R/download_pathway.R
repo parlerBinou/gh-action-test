@@ -1,4 +1,4 @@
-require("tidyverse")
+if (!"tidyverse" %in% installed.packages()) install.packages("tidyverse")
 library(tidyverse)
 source("R/download_data.R")
 
