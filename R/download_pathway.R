@@ -1,5 +1,9 @@
-if (!"tidyverse" %in% installed.packages()) install.packages("tidyverse")
-library(tidyverse)
+packages <- c("dplyr", "readr", "tidyr")
+install.packages(setdiff(packages, rownames(installed.packages()))) 
+
+library(dplyr)
+library(readr)
+library(tidyr)
 source("R/download_data.R")
 
 pathway <- download_data(
