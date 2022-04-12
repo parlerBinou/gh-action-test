@@ -1,3 +1,4 @@
+require("tidyverse")
 library(tidyverse)
 source("R/download_data.R")
 

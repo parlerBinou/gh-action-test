@@ -31,7 +31,7 @@ jobs:
 
       - name: Test R
         run: |
-          Rscript R/pathway.R
+          Rscript R/download_pathway.R
 
       - name: Commit files
         run: |
