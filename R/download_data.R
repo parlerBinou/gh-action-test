@@ -31,7 +31,7 @@ download_data <- function(table_number, coord_names, coord_prefix="dim", file_na
   
   
   if (!is.null(file_name)) {
-    saveRDS(df, file=paste0("data/",file_name,".Rds"))
+    saveRDS(df, file=paste0("Data/",file_name,".Rds"))
   }
   
   return(df)
