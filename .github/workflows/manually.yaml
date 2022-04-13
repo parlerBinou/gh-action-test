@@ -26,24 +26,19 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
 
       - name: Import GPG Key
-        uses: crazy-max/ghaction-import-gpg@v1
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true  
 
-
-      - name: Check environment
-        run: |
-          ls -al
-
-      - name: Test R
+      - name: Download and process data
         run: |
           Rscript R/download_pathway.R
 
       - name: Commit files
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
           git add ./Data
           git commit -S -m "updated data"
           git push
